@@ -1,28 +1,26 @@
-*This repository acts as a template for all of Oracle’s GitHub repositories. It contains information about the guidelines for those repositories. All files and sections contained in this template are mandatory, and a GitHub app ensures alignment with these guidelines. To get started with a new repository, replace the italic paragraphs with the respective text for your project.*
+# Graal Cloud Native IntelliJ IDEA extensions
 
-# Project name
+This suite provides extensions to IntelliJ that supports development of Graal Cloud Native (GCN) and Micronaut applications.
 
-*Describe your project's features, functionality and target audience*
+## Build extensions from sources
+
+To build `.zip` file that corresponds to IntelliJ extension format, take the following steps:
+
+- Build [gcn project](https://github.com/oracle/gcn) separately and publish it to local Maven repo with gradle `./gradlew publishToMavenLocal`
+
+- Build extensions with gradle `./gradlew build`
+
+Extensions should be located in `/build/distributions`
 
 ## Installation
 
-*Provide detailed step-by-step installation instructions. You can name this section **How to Run** or **Getting Started** instead of **Installation** if that's more acceptable for your project*
+Extensions can be installed through IntelliJ graphical interface:
 
-## Documentation
-
-*Developer-oriented documentation can be published on GitHub, but all product documentation must be published on <https://docs.oracle.com>*
-
-## Examples
-
-*Describe any included examples or provide a link to a demo/tutorial*
-
-## Help
-
-*Inform users on where to get help or how to receive official support from Oracle (if applicable)*
+- Open settings panel and navigate to Plugins section on the left
+- Select `install plugin from disk` option and navigate to the `.zip` file
+- Restart the IDE
 
 ## Contributing
-
-*If your project has specific contribution requirements, update the CONTRIBUTING.md file to ensure those requirements are clearly explained*
 
 This project welcomes contributions from the community. Before submitting a pull request, please [review our contribution guide](./CONTRIBUTING.md)
 
@@ -30,15 +28,9 @@ This project welcomes contributions from the community. Before submitting a pull
 
 Please consult the [security guide](./SECURITY.md) for our responsible security vulnerability disclosure process
 
+
 ## License
 
-*The correct copyright notice format for both documentation and software is*
-    "Copyright (c) [year,] year Oracle and/or its affiliates."
-*You must include the year the content was first released (on any platform) and the most recent year in which it was revised*
+Copyright (c) 2019, 2024, Oracle and/or its affiliates. All rights reserved.
 
-Copyright (c) 2023 Oracle and/or its affiliates.
-
-*Replace this statement if your project is not licensed under the UPL*
-
-Released under the Universal Permissive License v1.0 as shown at
-<https://oss.oracle.com/licenses/upl/>.
+Released under the [Apache License version 2.0](LICENSE.txt).
