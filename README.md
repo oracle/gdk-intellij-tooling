@@ -1,21 +1,25 @@
-# Graal Cloud Native IntelliJ IDEA extensions
+# Graal Cloud Native IntelliJ IDEA Plugin
 
-This suite provides extensions to IntelliJ that supports development of Graal Cloud Native (GCN) and Micronaut applications.
+The plugin provides Graal Cloud Native (GCN) project wizard which generates GCN application. Graal Cloud Native is a cloud-agnostic development framework, built on top of Micronaut. Using Graal Cloud Native you can write once and then run the same code on multiple cloud platforms. 
+All IntelliJ IDEA Ultimate Micronaut support is then available for GCN project. 
 
-## Build extensions from sources
+## Build plugin from sources
 
-To build `.zip` file that corresponds to IntelliJ extension format, take the following steps:
+To build `.zip` file that corresponds to IntelliJ plugin format, take the following steps.
 
+Optionally:
 - Build [gcn project](https://github.com/oracle/gcn) separately and publish it to local Maven repo with gradle `./gradlew publishToMavenLocal`
 
-- Build extensions with gradle `./gradlew build`
+Build plugin with gradle `./gradlew build`
 
-Extensions should be located in `/build/distributions`
+Plugin should be located in `/build/distributions`
 
 ## Installation
 
-Extensions can be installed through IntelliJ graphical interface:
+Plugin can be installed through IntelliJ graphical interface:
+- Install using IntelliJ Settings panel | Plugins from Marketplace
 
+Or if installing from local zip file:
 - Open settings panel and navigate to Plugins section on the left
 - Select `install plugin from disk` option and navigate to the `.zip` file
 - Restart the IDE
