@@ -45,6 +45,8 @@ import com.intellij.ide.util.projectWizard.WizardContext;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.module.JavaModuleType;
 import com.intellij.openapi.module.Module;
+import com.intellij.openapi.module.ModuleType;
+import com.intellij.openapi.module.StdModuleTypes;
 import com.intellij.openapi.projectRoots.JavaSdkType;
 import com.intellij.openapi.projectRoots.SdkTypeId;
 import com.intellij.openapi.projectRoots.impl.DependentSdkType;
@@ -53,6 +55,7 @@ import com.intellij.openapi.util.Key;
 import com.intellij.openapi.util.SystemInfo;
 import com.intellij.pom.java.LanguageLevel;
 import com.intellij.util.lang.JavaVersion;
+import icons.SdkIcons;
 import io.micronaut.context.ApplicationContext;
 import io.micronaut.context.ApplicationContextBuilder;
 import io.micronaut.starter.application.OperatingSystem;
@@ -307,22 +310,22 @@ public class GCNModuleBuilder extends StarterModuleBuilder {
 
     @Override
     public String getDescription() {
-        return GCNModuleType.getInstance().getDescription();
+        return "Graal cloud native module type";
     }
 
     @Override
     public String getPresentableName() {
-        return GCNModuleType.getInstance().getName();
+        return "Graal Cloud Native";
     }
 
     @Override
     public Icon getNodeIcon() {
-        return GCNModuleType.getInstance().getIcon();
+        return SdkIcons.gcn_default_icon;
     }
 
     @Override
     public String getBuilderId() {
-        return GCNModuleType.getInstance().getId();
+        return "GCN_MODULE_TYPE";
     }
 
     public static Collection<Feature> getFeatures() {
@@ -346,8 +349,8 @@ public class GCNModuleBuilder extends StarterModuleBuilder {
     }
 
     @Override
-    public GCNModuleType getModuleType() {
-        return GCNModuleType.getInstance();
+    public ModuleType<?> getModuleType() {
+        return StdModuleTypes.JAVA;
     }
 
     @Override

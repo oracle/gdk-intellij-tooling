@@ -40,8 +40,6 @@
   <!-- Extension points defined by the plugin.
        Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
   <extensions defaultExtensionNs="com.intellij">
-    <moduleType
-            id="GCN_MODULE_TYPE"
-            implementationClass="cloud.graal.gcn.plugin.intellij.GCNModuleType"/>
+    <moduleBuilder builderClass="cloud.graal.gcn.plugin.intellij.GCNModuleBuilder"/>
   </extensions>
 </idea-plugin>
