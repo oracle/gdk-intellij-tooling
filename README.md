@@ -1,7 +1,8 @@
-# Graal Cloud Native IntelliJ IDEA Plugin
+# Graal Development Kit for Micronaut&reg; IntelliJ IDEA Plugin
 
-The plugin provides a [Graal Cloud Native (GCN)](https://graal.cloud/gcn/) project wizard which helps you generate GCN applications. GCN is a cloud-agnostic development framework, built on top of Micronaut. Using Graal Cloud Native you can write once and then run it on multiple cloud platforms.
-It also enables IntelliJ IDEA Ultimate Micronaut support for GCN projects. 
+The plugin provides a [Graal Development Kit for Micronaut&reg; (GDK)](https://graal.cloud/gcn/) project wizard which helps you generate GDK applications. GDK is a cloud-agnostic development framework, built on top of Micronaut. Using Graal Development Kit for Micronaut&reg; you can write once and then run it on multiple cloud platforms.
+It also enables IntelliJ IDEA Ultimate Micronaut support for GDK projects. 
+Graal Development Kit for Micronaut was formerly Graal Cloud Native.
 
 ## Build plugin from sources
 
