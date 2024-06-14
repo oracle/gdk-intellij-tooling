@@ -1,6 +1,6 @@
 # Graal Development Kit for Micronaut&reg; plugin
 
-This IntelliJ IDEA plugin provides a [Graal Development Kit for Micronaut&reg; (GDK)](https://graal.cloud/gcn/) project wizard which helps you generate GDK applications. 
+This IntelliJ IDEA plugin provides a [Graal Development Kit for Micronaut&reg; (GDK)](https://graal.cloud/gdk/) project wizard which helps you generate GDK applications.
 
 GDK is a curated set of open source Micronaut® framework modules designed from the ground up to be compiled ahead-of-time with GraalVM Native Image resulting in native executables ideal for microservices.
 
@@ -12,7 +12,7 @@ Graal Development Kit for Micronaut was formerly Graal Cloud Native.
 To build `.zip` file that corresponds to IntelliJ plugin format, take the following steps.
 
 Optionally:
-- Build [gcn project](https://github.com/oracle/gcn) separately and publish it to local Maven repo with gradle `./gradlew publishToMavenLocal`
+- Build [gdk project](https://graal.cloud/gdk/) separately and publish it to local Maven repo with gradle `./gradlew publishToMavenLocal`
 
 Build plugin with gradle `./gradlew build`
 
