@@ -60,6 +60,7 @@ import io.micronaut.context.ApplicationContext;
 import io.micronaut.context.ApplicationContextBuilder;
 import io.micronaut.starter.application.OperatingSystem;
 import io.micronaut.starter.feature.Feature;
+import io.micronaut.starter.feature.graalvm.GraalVM;
 import io.micronaut.starter.io.ConsoleOutput;
 import io.micronaut.starter.io.FileSystemOutputHandler;
 import io.micronaut.starter.options.BuildTool;
@@ -79,6 +80,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 import javax.swing.Icon;
 import org.jetbrains.annotations.NonNls;
 
@@ -376,6 +378,7 @@ public class GDKModuleBuilder extends StarterModuleBuilder {
         Disposable disposable = context.getDisposable();
         featuresContext = new StarterContext();
         featuresContext.setStarterPack(getFeaturesStarterPack());
+        setDefaultFeatures(featuresContext);
         StarterWizardSettings s = internalCp.getSettings();
         CustomizedMessages msg = new CustomizedMessages();
         msg.setDependenciesLabel(GDKBundle.message("gdk.create.new.features"));
@@ -425,5 +428,10 @@ public class GDKModuleBuilder extends StarterModuleBuilder {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
+    }
+
+    private void setDefaultFeatures(StarterContext featuresContext) {
+        Set<String> libraryIds = featuresContext.getLibraryIds();
+        libraryIds.add(GraalVM.FEATURE_NAME_GRAALVM);
     }
 }
