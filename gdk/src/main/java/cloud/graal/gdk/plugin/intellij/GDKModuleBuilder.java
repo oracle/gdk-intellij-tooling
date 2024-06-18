@@ -92,7 +92,7 @@ public class GDKModuleBuilder extends StarterModuleBuilder {
 
     private StarterContextProvider internalCp;
     private StarterContext featuresContext;
-    private Collection<Feature> features;
+
     public GDKModuleBuilder() {
     }
 
@@ -153,8 +153,8 @@ public class GDKModuleBuilder extends StarterModuleBuilder {
         List<Starter> starters = new ArrayList<>();
         List<Library> libs = new ArrayList<>();
         Map<String, LibraryCategory> categories = new HashMap<>();
-        features = GDKModuleBuilder.getFeatures();
-        for (Feature f : features) {
+
+        for (Feature f : getFeatures()) {
             if (GdkTestedFeatures.isFeatureGdkTested(f) && f.getTitle() != null && f.getDescription() != null) {
                 String cat = f.getCategory();
                 LibraryCategory category = new LibraryCategory(cat, null, cat, cat);
