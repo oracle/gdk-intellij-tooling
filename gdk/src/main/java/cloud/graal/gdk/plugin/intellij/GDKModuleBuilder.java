@@ -153,28 +153,27 @@ public class GDKModuleBuilder extends StarterModuleBuilder {
 
     StarterPack getFeaturesStarterPack() {
         List<Starter> starters = new ArrayList<>();
+        List<Library> testedLibs = new ArrayList<>();
         List<Library> libs = new ArrayList<>();
         Map<String, LibraryCategory> categories = new HashMap<>();
 
         for (Feature f : getFeatures()) {
-            if (GdkTestedFeatures.isFeatureGdkTested(f) && f.getTitle() != null && f.getDescription() != null) {
+            if (f.getTitle() != null && f.getDescription() != null) {
+                List<LibraryLink> docs = getLibraryLink(f);
                 String cat = f.getCategory();
                 LibraryCategory category = new LibraryCategory(cat, null, cat, cat);
                 categories.putIfAbsent(cat, category);
-                List<LibraryLink> docs = getLibraryLink(f);
-                libs.add(new Library(f.getName(), null, f.getTitle(), f.getDescription(),null, null, docs, categories.get(cat), false, false, Collections.emptySet()));
+                Library library = new Library(f.getName(), null, f.getTitle(), f.getDescription(),null, null, docs, category, false, false, Collections.emptySet());
+                if (GdkTestedFeatures.isFeatureGdkTested(f)) {
+                    testedLibs.add(library);
+                }
+                libs.add(library);
             }
         }
-        libs.sort(new Comparator<Library>() {
-            @Override
-            public int compare(Library o1, Library o2) {
-                int r = o1.getCategory().getTitle().compareTo(o2.getCategory().getTitle());
-                if (r == 0) r = o1.getTitle().compareTo(o2.getTitle());
-                return r;
-            }
-        });
-        Starter s = new Starter("GDKF", "GDK Feature", getDependencyConfig("/starters/gdk.xml"), libs);
-        starters.add(s);
+        libs.sort(new LibraryComparator());
+        testedLibs.sort(new LibraryComparator());
+        starters.add(new Starter("GDKF", GDKBundle.message("gdk.create.new.services.tested"), getDependencyConfig("/starters/gdk.xml"), testedLibs));
+        starters.add(new Starter("GDKF", GDKBundle.message("gdk.create.new.services.all"), getDependencyConfig("/starters/gdk.xml"), libs));
         return new StarterPack("GDK project", starters);
     }
 
@@ -384,6 +383,7 @@ public class GDKModuleBuilder extends StarterModuleBuilder {
         msg.setDependenciesLabel(GDKBundle.message("gdk.create.new.features"));
         msg.setNoDependenciesSelectedLabel(GDKBundle.message("gdk.create.new.no.features"));
         msg.setSelectedDependenciesLabel(GDKBundle.message("gdk.create.new.added.features"));
+        msg.setFrameworkVersionLabel(GDKBundle.message("gdk.create.new.features.type"));
         StarterWizardSettings featuresSettings = new StarterWizardSettings(s.getProjectTypes(),
                 s.getLanguages(), s.isExampleCodeProvided(), s.isPackageNameEditable(),
                 s.getLanguageLevels(), s.getDefaultLanguageLevel(),
@@ -433,5 +433,15 @@ public class GDKModuleBuilder extends StarterModuleBuilder {
     private void setDefaultFeatures(StarterContext featuresContext) {
         Set<String> libraryIds = featuresContext.getLibraryIds();
         libraryIds.add(GraalVM.FEATURE_NAME_GRAALVM);
+    }
+
+    private static class LibraryComparator implements Comparator<Library> {
+
+        @Override
+        public int compare(Library o1, Library o2) {
+            int r = o1.getCategory().getTitle().compareTo(o2.getCategory().getTitle());
+            if (r == 0) r = o1.getTitle().compareTo(o2.getTitle());
+            return r;
+        }
     }
 }
