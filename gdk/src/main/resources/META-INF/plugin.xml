@@ -28,7 +28,24 @@
   <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
        Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
        Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
-  <description>Graal Development Kit for Micronaut is a cloud-agnostic development framework, built on top of Micronaut. Using Graal Development Kit for Micronaut you can write once and then run the same code on multiple cloud platforms.</description>
+  <description>Graal Development Kit for Micronaut is a cloud-agnostic development framework,
+      built on top of Micronaut. Using Graal Development Kit for Micronaut you can write once
+      and then run the same code on multiple cloud platforms.
+  </description>
+  <change-notes>
+    <![CDATA[
+      <ul>
+        <li><b>1.1.0</b></li>
+        <ul>
+          <li>combo added to switch between tested and all features</li>
+          <li>preselect GraalVM feature</li>
+          <li>Rename references from GCN to GDK</li>
+          <li><a href="https://github.com/oracle/gcn-intellij-tooling/issues/3">GH-3</a> do not use outdated ModuleType concept</li>
+        </ul>
+        <li><b>1.0.0</b> initial release.</li>
+      </ul>
+    ]]>
+  </change-notes>
 
   <!-- Product and plugin compatibility requirements.
        Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
