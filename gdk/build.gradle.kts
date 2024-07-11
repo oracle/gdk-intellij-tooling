@@ -39,7 +39,7 @@ intellij {
 }
 
 dependencies {
-  implementation("gdk:gdk-core:4.5.0.0-SNAPSHOT")
+  implementation("cloud.graal.gdk:gdk-core:4.5.0.0")
 
   var micronautVersion = "4.5.0"
 
