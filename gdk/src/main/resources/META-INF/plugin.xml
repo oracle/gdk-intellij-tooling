@@ -35,6 +35,10 @@
   <change-notes>
     <![CDATA[
       <ul>
+        <li><b>1.2.0</b></li>
+        <ul>
+          <li>upgraded to GDK 4.6.0.0</li>
+        </ul>
         <li><b>1.1.0</b></li>
         <ul>
           <li>combo added to switch between tested and all features</li>

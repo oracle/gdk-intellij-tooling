@@ -21,7 +21,7 @@ plugins {
 }
 
 group = "cloud.graal.gdk.plugin"
-version = "1.1.0"
+version = "1.2.0"
 
 repositories {
   mavenLocal()
@@ -39,9 +39,9 @@ intellij {
 }
 
 dependencies {
-  implementation("cloud.graal.gdk:gdk-core:4.5.0.0")
+  implementation("cloud.graal.gdk:gdk-core:4.6.0.0-SNAPSHOT")
 
-  var micronautVersion = "4.5.0"
+  var micronautVersion = "4.6.0"
 
   runtimeOnly("io.micronaut:micronaut-http-server:$micronautVersion")
 
