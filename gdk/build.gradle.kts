@@ -39,11 +39,15 @@ intellij {
 }
 
 dependencies {
-  implementation("cloud.graal.gdk:gdk-core:4.6.0.3")
+  implementation("cloud.graal.gdk:gdk-core:4.6.0.3") {
+        exclude(group="org.slf4j", module="slf4j-api")
+  }
 
   var micronautVersion = "4.6.0"
 
-  runtimeOnly("io.micronaut:micronaut-http-server:$micronautVersion")
+  runtimeOnly("io.micronaut:micronaut-http-server:$micronautVersion") {
+        exclude(group="org.slf4j", module="slf4j-api")
+  }
 
   testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
