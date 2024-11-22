@@ -35,6 +35,10 @@
   <change-notes>
     <![CDATA[
       <ul>
+        <li><b>1.4.0</b></li>
+        <ul>
+          <li>upgraded to GDK 4.6.0.4</li>
+        </ul>
         <li><b>1.3.0</b></li>
         <ul>
           <li>upgraded to GDK 4.6.0.3</li>
