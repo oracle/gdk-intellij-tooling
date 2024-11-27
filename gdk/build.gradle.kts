@@ -21,7 +21,7 @@ plugins {
 }
 
 group = "cloud.graal.gdk.plugin"
-version = "1.4.0"
+version = "1.5.0"
 
 repositories {
   mavenLocal()
@@ -39,7 +39,7 @@ intellij {
 }
 
 dependencies {
-  implementation("cloud.graal.gdk:gdk-core:4.6.0.4") {
+  implementation("cloud.graal.gdk:gdk-core:4.6.0.5") {
         exclude(group="org.slf4j", module="slf4j-api")
   }
 
