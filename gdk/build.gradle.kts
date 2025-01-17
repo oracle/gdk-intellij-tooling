@@ -21,7 +21,7 @@ plugins {
 }
 
 group = "cloud.graal.gdk.plugin"
-version = "1.6.0"
+version = "1.7.0"
 
 repositories {
   mavenLocal()
@@ -39,11 +39,11 @@ intellij {
 }
 
 dependencies {
-  implementation("cloud.graal.gdk:gdk-core:4.6.0.6") {
+  implementation("cloud.graal.gdk:gdk-core:4.7.3.1") {
         exclude(group="org.slf4j", module="slf4j-api")
   }
 
-  var micronautVersion = "4.6.0"
+  var micronautVersion = "4.7.10"
 
   runtimeOnly("io.micronaut:micronaut-http-server:$micronautVersion") {
         exclude(group="org.slf4j", module="slf4j-api")
