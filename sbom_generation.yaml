@@ -1,0 +1,60 @@
+# Copyright (c) 2025, Oracle and/or its affiliates. All rights reserved.
+
+# This OCI DevOps build specification file [1] generates a Software Bill of Materials (SBOM) of the repository.
+# The file is needed to run checks for third-party vulnerabilities and business approval according to Oracle's GitHub policies.
+# [1] https://docs.oracle.com/en-us/iaas/Content/devops/using/build_specs.htm
+
+version: 0.1
+component: build
+timeoutInSeconds: 1000
+shell: bash
+
+env:
+  variables:
+    "JAVA_HOME" : "/usr/lib64/graalvm/graalvm21-ee-java11"
+steps:
+  - type: Command
+    name: "Installing the Oracle GraalVM 21 for JDK 11"
+    command: |
+      yum -y install graalvm21-ee-11-jdk
+  - type: Command
+    name: "Setting the JAVA_PATH"
+    command: |
+      export PATH=$JAVA_HOME/bin:$PATH
+  - type: Command
+    name: "Run Gradle cyclonedxBom command"
+    command: |
+      # For more details, visit https://github.com/CycloneDX/cyclonedx-gradle-plugin/blob/master/README.md
+      cd gdk/
+      cat <<EOF >> init.gradle
+        initscript {
+          repositories {
+            maven {
+              url "https://plugins.gradle.org/m2/"
+            }
+          }
+          dependencies {
+            classpath "org.cyclonedx:cyclonedx-gradle-plugin:1.7.4"
+          }
+        }
+        allprojects {
+          apply plugin:org.cyclonedx.gradle.CycloneDxPlugin
+          cyclonedxBom {
+            includeConfigs = ["runtimeClasspath", "compileClasspath"]
+            skipConfigs = ["testCompileClasspath"]
+            projectType = "application"
+            destination = file(".")
+            outputName = "artifactSBOM"
+            outputFormat = "json"
+            schemaVersion = "1.4"
+          }
+        }
+      EOF
+      ./gradlew --init-script init.gradle cyclonedxBom -info
+      mv artifactSBOM.json ${OCI_PRIMARY_SOURCE_DIR}/artifactSBOM.json
+      cd ..
+outputArtifacts:
+  - name: artifactSBOM
+    type: BINARY
+    location: ${OCI_PRIMARY_SOURCE_DIR}/artifactSBOM.json
+
