@@ -17,23 +17,26 @@
 package cloud.graal.gdk.plugin.intellij;
 
 import cloud.graal.gdk.model.GdkCloud;
-import org.apache.commons.lang.RandomStringUtils;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class GDKModuleBuilderTest {
+
+    private static final String TEST_PREFIX = "GDK-test-";
+    private static final Random rnd = new Random();
 
     @org.junit.jupiter.api.Test
     void createEmptyProject() {
         String tempDirectory = System.getProperty("java.io.tmpdir");
         assertTrue(tempDirectory.length() > 0, "Could not determine temp directory");
 
-        String baseDir = tempDirectory + RandomStringUtils.randomAlphanumeric(16);
+        String baseDir = Path.of(tempDirectory, TEST_PREFIX+Long.toUnsignedString(rnd.nextLong())).toString();
         ProjectDetails projectDetails = ProjectDetails.getDefaultProject(baseDir);
 
         GDKModuleBuilder.createProject(projectDetails);
@@ -53,7 +56,7 @@ class GDKModuleBuilderTest {
         String tempDirectory = System.getProperty("java.io.tmpdir");
         assertTrue(tempDirectory.length() > 0, "Could not determine temp directory");
 
-        String baseDir = tempDirectory + RandomStringUtils.randomAlphanumeric(16);
+        String baseDir = Path.of(tempDirectory, TEST_PREFIX+Long.toUnsignedString(rnd.nextLong())).toString();
         ProjectDetails projectDetails = ProjectDetails.getDefaultProject(baseDir);
         projectDetails.providers = List.of(GdkCloud.AWS, GdkCloud.OCI);
 
@@ -74,7 +77,7 @@ class GDKModuleBuilderTest {
         String tempDirectory = System.getProperty("java.io.tmpdir");
         assertTrue(tempDirectory.length() > 0, "Could not determine temp directory");
 
-        String baseDir = tempDirectory + RandomStringUtils.randomAlphanumeric(16);
+        String baseDir = Path.of(tempDirectory, TEST_PREFIX+Long.toUnsignedString(rnd.nextLong())).toString();
         ProjectDetails projectDetails = ProjectDetails.getDefaultProject(baseDir);
 
         GDKModuleBuilder.createProject(projectDetails);
