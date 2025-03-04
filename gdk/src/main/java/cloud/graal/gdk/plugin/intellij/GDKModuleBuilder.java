@@ -76,7 +76,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -155,14 +154,12 @@ public class GDKModuleBuilder extends StarterModuleBuilder {
         List<Starter> starters = new ArrayList<>();
         List<Library> testedLibs = new ArrayList<>();
         List<Library> libs = new ArrayList<>();
-        Map<String, LibraryCategory> categories = new HashMap<>();
 
         for (Feature f : getFeatures()) {
             if (f.getTitle() != null && f.getDescription() != null) {
                 List<LibraryLink> docs = getLibraryLink(f);
                 String cat = f.getCategory();
                 LibraryCategory category = new LibraryCategory(cat, null, cat, cat);
-                categories.putIfAbsent(cat, category);
                 Library library = new Library(f.getName(), null, f.getTitle(), f.getDescription(),null, null, docs, category, false, false, Collections.emptySet());
                 if (GdkTestedFeatures.isFeatureGdkTested(f)) {
                     testedLibs.add(library);
