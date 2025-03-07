@@ -1,7 +1,9 @@
 # Graal Development Kit for Micronaut
 
+<!-- Plugin description -->
 [Graal Development Kit for Micronaut](https://graal.cloud/gdk) is a cloud-agnostic development framework, built on top of
 [Micronaut](https://micronaut.io/). Using Graal Development Kit for Micronaut you can write once and then run the same code on multiple cloud platforms.
+<!-- Plugin description end -->
 
 This extension provides a wizard to easily create a new Graal Development Kit for Micronaut project.
 

@@ -1,0 +1,27 @@
+[versions]
+# libraries
+junit = "5.8.1"
+junit4 = "4.13.2"
+micronaut = "4.7.10"
+gdk = "4.7.3.2"
+
+# plugins
+changelog = "2.2.1"
+intelliJPlatform = "2.3.0"
+kotlin = "1.9.25"
+kover = "0.8.3"
+qodana = "2024.2.3"
+
+[libraries]
+junit = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junit" }
+junit-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit" }
+junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
+http-server = { group = "io.micronaut", name = "micronaut-http-server", version.ref = "micronaut"}
+gdk-core = { group = "cloud.graal.gdk", name = "gdk-core", version.ref = "gdk"}
+
+[plugins]
+changelog = { id = "org.jetbrains.changelog", version.ref = "changelog" }
+intelliJPlatform = { id = "org.jetbrains.intellij.platform", version.ref = "intelliJPlatform" }
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
+qodana = { id = "org.jetbrains.qodana", version.ref = "qodana" }
