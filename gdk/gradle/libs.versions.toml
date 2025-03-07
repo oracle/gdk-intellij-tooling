@@ -15,6 +15,7 @@ qodana = "2024.2.3"
 [libraries]
 junit = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junit" }
 junit-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit" }
+junit-launcher = { group = "org.junit.platform", name = "junit-platform-launcher"}
 junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
 http-server = { group = "io.micronaut", name = "micronaut-http-server", version.ref = "micronaut"}
 gdk-core = { group = "cloud.graal.gdk", name = "gdk-core", version.ref = "gdk"}
