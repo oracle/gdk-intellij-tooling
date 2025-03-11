@@ -22,21 +22,16 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class GDKModuleBuilderTest {
 
-    private static final String TEST_PREFIX = "GDK-test-";
-    private static final Random rnd = new Random();
+    private static final String TEST_PREFIX = "GDK-test";
 
     @org.junit.jupiter.api.Test
-    void createEmptyProject() {
-        String tempDirectory = System.getProperty("java.io.tmpdir");
-        assertTrue(tempDirectory.length() > 0, "Could not determine temp directory");
-
-        String baseDir = Path.of(tempDirectory, TEST_PREFIX+Long.toUnsignedString(rnd.nextLong())).toString();
+    void createEmptyProject(@org.junit.jupiter.api.io.TempDir Path tempDir) {
+        String baseDir = tempDir.resolve(TEST_PREFIX).toString();
         ProjectDetails projectDetails = ProjectDetails.getDefaultProject(baseDir);
 
         GDKModuleBuilder.createProject(projectDetails);
@@ -52,11 +47,8 @@ class GDKModuleBuilderTest {
     }
 
     @org.junit.jupiter.api.Test
-    void createProjectWithProviders() {
-        String tempDirectory = System.getProperty("java.io.tmpdir");
-        assertTrue(tempDirectory.length() > 0, "Could not determine temp directory");
-
-        String baseDir = Path.of(tempDirectory, TEST_PREFIX+Long.toUnsignedString(rnd.nextLong())).toString();
+    void createProjectWithProviders(@org.junit.jupiter.api.io.TempDir Path tempDir) {
+        String baseDir = tempDir.resolve(TEST_PREFIX).toString();
         ProjectDetails projectDetails = ProjectDetails.getDefaultProject(baseDir);
         projectDetails.providers = List.of(GdkCloud.AWS, GdkCloud.OCI);
 
@@ -73,11 +65,8 @@ class GDKModuleBuilderTest {
     }
 
     @org.junit.jupiter.api.Test
-    void createProjectWithCorrectPackage() {
-        String tempDirectory = System.getProperty("java.io.tmpdir");
-        assertTrue(tempDirectory.length() > 0, "Could not determine temp directory");
-
-        String baseDir = Path.of(tempDirectory, TEST_PREFIX+Long.toUnsignedString(rnd.nextLong())).toString();
+    void createProjectWithCorrectPackage(@org.junit.jupiter.api.io.TempDir Path tempDir) {
+        String baseDir = tempDir.resolve(TEST_PREFIX).toString();
         ProjectDetails projectDetails = ProjectDetails.getDefaultProject(baseDir);
 
         GDKModuleBuilder.createProject(projectDetails);
