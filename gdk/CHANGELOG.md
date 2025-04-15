@@ -4,6 +4,15 @@
 
 ## [Unreleased]
 
+## [1.9.0] - 2025-04-15
+
+### Changed
+
+- upgraded to GDK 4.7.3.4
+- use new org.jetbrains.intellij.platform Gradle plugin to build the project
+- do not use deprecated method RandomStringUtils.randomAlphanumeric()
+- use @TempDir instead of creating temp directory manually
+
 ## [1.8.0] - 2025-02-25
 
 ### Changed
