@@ -11,12 +11,12 @@ shell: bash
 
 env:
   variables:
-    "JAVA_HOME" : "/usr/lib64/graalvm/graalvm21-ee-java11"
+    "JAVA_HOME" : "/usr/lib64/graalvm/graalvm21-ee-java17"
 steps:
   - type: Command
-    name: "Installing the Oracle GraalVM 21 for JDK 11"
+    name: "Installing the Oracle GraalVM 21 for JDK 17"
     command: |
-      yum -y install graalvm21-ee-11-jdk
+      yum -y install graalvm21-ee-17-jdk
   - type: Command
     name: "Setting the JAVA_PATH"
     command: |
@@ -34,7 +34,7 @@ steps:
             }
           }
           dependencies {
-            classpath "org.cyclonedx:cyclonedx-gradle-plugin:1.7.4"
+            classpath "org.cyclonedx:cyclonedx-gradle-plugin:2.3.0"
           }
         }
         allprojects {
