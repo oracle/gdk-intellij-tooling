@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [1.10.0] - 2025-07-15
+
+### Changed
+
+- upgraded to GDK 4.7.3.5
+
 ## [1.9.0] - 2025-04-15
 
 ### Changed
@@ -75,7 +81,9 @@
 - initial release
 
 
-[Unreleased]: https://github.com/oracle/graal-dev-kit/compare/1.8.0...HEAD
+[Unreleased]: https://github.com/oracle/gdk-intellij-tooling/compare/1.10.0...HEAD
+[1.10.0]: https://github.com/oracle/gdk-intellij-tooling/compare/1.9.0...1.10.0
+[1.9.0]: https://github.com/oracle/gdk-intellij-tooling/compare/1.8.0...1.9.0
 [1.8.0]: https://github.com/oracle/gdk-intellij-tooling/compare/1.7.0...1.8.0
 [1.7.0]: https://github.com/oracle/gdk-intellij-tooling/compare/1.6.0...1.7.0
 [1.6.0]: https://github.com/oracle/gdk-intellij-tooling/compare/1.4.0...1.6.0

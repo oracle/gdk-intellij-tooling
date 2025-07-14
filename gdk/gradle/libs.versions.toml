@@ -3,7 +3,7 @@
 junit = "5.8.1"
 junit4 = "4.13.2"
 micronaut = "4.7.10"
-gdk = "4.7.3.4"
+gdk = "4.7.3.5"
 
 # plugins
 changelog = "2.2.1"
