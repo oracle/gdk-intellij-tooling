@@ -4,6 +4,14 @@
 
 ## [Unreleased]
 
+## [1.11.0] - 2025-08-08
+
+### Changed
+
+- upgraded to GDK 4.9.1.1
+- gradle upgrade to 8.14.3
+- IntelliJ Platform Gradle Plugin updated to 2.7.0
+
 ## [1.10.0] - 2025-07-15
 
 ### Changed
@@ -81,7 +89,8 @@
 - initial release
 
 
-[Unreleased]: https://github.com/oracle/gdk-intellij-tooling/compare/1.10.0...HEAD
+[Unreleased]: https://github.com/oracle/gdk-intellij-tooling/compare/1.11.0...HEAD
+[1.11.0]: https://github.com/oracle/gdk-intellij-tooling/compare/1.10.0...1.11.0
 [1.10.0]: https://github.com/oracle/gdk-intellij-tooling/compare/1.9.0...1.10.0
 [1.9.0]: https://github.com/oracle/gdk-intellij-tooling/compare/1.8.0...1.9.0
 [1.8.0]: https://github.com/oracle/gdk-intellij-tooling/compare/1.7.0...1.8.0
