@@ -39,7 +39,7 @@ Please consult the [security guide](./SECURITY.md) for our responsible security 
 
 ## License
 
-Copyright (c) 2019, 2024, Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2019, 2025, Oracle and/or its affiliates. All rights reserved.
 
 Released under the [Apache License version 2.0](LICENSE.txt).
 
