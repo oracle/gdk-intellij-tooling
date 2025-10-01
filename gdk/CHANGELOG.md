@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [1.13.0] - 2025-10-01
+
+### Changed
+
+- upgraded to GDK 4.9.1.3
+
 ## [1.12.0] - 2025-08-29
 
 ### Changed
@@ -96,7 +102,8 @@
 - initial release
 
 
-[Unreleased]: https://github.com/oracle/gdk-intellij-tooling/compare/1.12.0...HEAD
+[Unreleased]: https://github.com/oracle/gdk-intellij-tooling/compare/1.13.0...HEAD
+[1.13.0]: https://github.com/oracle/gdk-intellij-tooling/compare/1.12.0...1.13.0
 [1.12.0]: https://github.com/oracle/gdk-intellij-tooling/compare/1.11.0...1.12.0
 [1.11.0]: https://github.com/oracle/gdk-intellij-tooling/compare/1.10.0...1.11.0
 [1.10.0]: https://github.com/oracle/gdk-intellij-tooling/compare/1.9.0...1.10.0
