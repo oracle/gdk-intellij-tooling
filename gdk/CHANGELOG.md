@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [1.14.0] - 2025-12-12
+
+### Changed
+
+- upgraded to GDK 4.10.1.1
+
 ## [1.13.0] - 2025-10-01
 
 ### Changed
